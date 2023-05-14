@@ -22,6 +22,16 @@
                 <li><a href="{{route('categories.index')}}">Kategóriák</a></li>
                 <li><a href="{{route('categories.create')}}">Új kategória</a></li>
                 <li><a href="{{route('tags.create')}}">Új címke</a></li>
+                @if (auth()->check())
+                    <li>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit">Logout {{auth()->user()->name}}</button>
+                        </form>
+                    </li>
+                @else
+                    <li><a href="{{route('login')}}">Login</a></li>
+                @endif
             </ul>
         </nav>
     </header>

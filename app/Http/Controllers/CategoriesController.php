@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -27,12 +28,8 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $request->validate(
-            ['name' => 'required|min:3|max:255',],
-            ['name.min' => 'A kategória neve legalább 3 karakter hosszú legyen.',]
-        );
 
         $category = new Category();
         $category->name = $request->name;
@@ -62,13 +59,8 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoryRequest $request, string $id)
     {
-        $request->validate(
-            ['name' => 'required|min:3|max:255',],
-            ['name.min' => 'A kategória neve legalább 3 karakter hosszú legyen.',]
-        );
-
         $category = Category::find($id);
         $category->name = $request->name;
         $category->save();

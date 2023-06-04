@@ -4,9 +4,7 @@
 
 <h1>Új Kategória</h1>
 
-@error('name')
-<div class="alert alert-warning">{{ $message }}</div>
-@enderror
+@include('_error')
 
 <form action="{{ route('categories.store') }}" method="post">
     @csrf

@@ -2,9 +2,7 @@
 
 @section('content')
 
-@error('name')
-<div class="alert alert-warning">{{ $message }}</div>
-@enderror
+@include('_error')
 
 <form action="{{ route('categories.update', $category->id) }}" method="post">
     @csrf

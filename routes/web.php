@@ -37,16 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/aitools/{aitool}', [AitoolsController::class, 'destroy'])->name('aitools.destroy');
 
     Route::get('/categories/create', [CategoriesController::class, 'create'])->name('categories.create');
-    Route::get('/categories/{aitool}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+    Route::get('/categories/{category}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
     Route::post('/categories', [CategoriesController::class, 'store'])->name('categories.store');
     Route::patch('/categories/{category}', [CategorysController::class, 'update'])->name('categorys.update');
-    Route::delete('/categories/{aitool}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+    Route::delete('/categories/{category}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
     Route::get('/tags/create', [TagsController::class, 'create'])->name('tags.create');
-    Route::get('/tags/{aitool}/edit', [TagsController::class, 'edit'])->name('tags.edit');
+    Route::get('/tags/{tag}/edit', [TagsController::class, 'edit'])->name('tags.edit');
     Route::post('/tags', [TagsController::class, 'store'])->name('tags.store');
     Route::patch('/tags/{tag}', [TagsController::class, 'update'])->name('tags.update');
-    Route::delete('/tags/{aitool}', [TagsController::class, 'destroy'])->name('tags.destroy');
+    Route::delete('/tags/{tag}', [TagsController::class, 'destroy'])->name('tags.destroy');
 });
 
 require __DIR__ . '/auth.php';
